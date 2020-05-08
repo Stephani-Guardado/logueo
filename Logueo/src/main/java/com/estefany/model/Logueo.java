@@ -2,6 +2,7 @@ package com.estefany.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -11,13 +12,6 @@ import javax.persistence.*;
 @Entity
 @NamedQuery(name="Logueo.findAll", query="SELECT l FROM Logueo l")
 public class Logueo implements Serializable {
-	@Override
-	public String toString() {
-		return "Logueo [idlogueo=" + idlogueo + ", apellidos_Usuario=" + apellidos_Usuario + ", corre_Usuario="
-				+ corre_Usuario + ", nombres_Usuario=" + nombres_Usuario + ", password=" + password + ", usuario="
-				+ usuario + "]";
-	}
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -32,6 +26,10 @@ public class Logueo implements Serializable {
 	private String password;
 
 	private String usuario;
+
+	//bi-directional many-to-one association to TbHistorial
+	@OneToMany(mappedBy="logueo")
+	private List<TbHistorial> tbHistorials;
 
 	public Logueo() {
 	}
@@ -82,6 +80,28 @@ public class Logueo implements Serializable {
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+
+	public List<TbHistorial> getTbHistorials() {
+		return this.tbHistorials;
+	}
+
+	public void setTbHistorials(List<TbHistorial> tbHistorials) {
+		this.tbHistorials = tbHistorials;
+	}
+
+	public TbHistorial addTbHistorial(TbHistorial tbHistorial) {
+		getTbHistorials().add(tbHistorial);
+		tbHistorial.setLogueo(this);
+
+		return tbHistorial;
+	}
+
+	public TbHistorial removeTbHistorial(TbHistorial tbHistorial) {
+		getTbHistorials().remove(tbHistorial);
+		tbHistorial.setLogueo(null);
+
+		return tbHistorial;
 	}
 
 }
