@@ -27,7 +27,8 @@ public List<Logueo> ingresarUser(Logueo user){
 		em.getTransaction().commit();
 		
 		for (Logueo datosids: usuario) {
-			System.out.println(datosids.getIdlogueo());
+			user.setIdlogueo(datosids.getIdlogueo());
+			
 		}
 	} catch (Exception e) {
 		// TODO: handle exception

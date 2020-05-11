@@ -8,7 +8,7 @@ import com.estefany.model.TbHistorial;
 
 public class historialDAO {
 
-public void agregardatos (TbHistorial His) {
+public void agregardatoshistorial(TbHistorial His) {
 	
 	EntityManager em;
 	EntityManagerFactory emf;

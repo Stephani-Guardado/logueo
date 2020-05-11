@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.estefany.DAO.historialDAO;
 import com.estefany.DAO.loginDAO;
 import com.estefany.model.Logueo;
 import com.estefany.model.TbHistorial;
@@ -69,11 +70,13 @@ public class serveletUser extends HttpServlet {
 		if (ingresarDatos==1) {
 			
 			TbHistorial histo = new TbHistorial();
-			
+			historialDAO histoDao = new historialDAO();
 			Date Fecha = new Date();
-			histo.setFecha(Fecha);
-			//user.setIdlogueo(idlogueo);
 			
+			histo.setFecha(Fecha);
+			user.setIdlogueo(user.getIdlogueo());
+			histo.setLogueo(user);
+			histoDao.agregardatoshistorial(histo);
 			
 			
 			HttpSession seccion = request.getSession(true);
