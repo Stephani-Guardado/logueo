@@ -1,6 +1,8 @@
 package com.estefany.controladorDatos;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.estefany.DAO.loginDAO;
 import com.estefany.model.Logueo;
+import com.estefany.model.TbHistorial;
 
 /**
  * Servlet implementation class serveletUser
@@ -64,6 +67,15 @@ public class serveletUser extends HttpServlet {
 		int ingresarDatos =lDao.ingresarUser(user).size();
 
 		if (ingresarDatos==1) {
+			
+			TbHistorial histo = new TbHistorial();
+			
+			Date Fecha = new Date();
+			histo.setFecha(Fecha);
+			//user.setIdlogueo(idlogueo);
+			
+			
+			
 			HttpSession seccion = request.getSession(true);
 			seccion.setAttribute("usuario", use);
 			response.sendRedirect("Principal.jsp");

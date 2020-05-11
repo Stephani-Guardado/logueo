@@ -34,8 +34,9 @@
 </form>	
 <div class="col-12 forgot">
 <a href="#">Forgot your password?</a>
-</div class="col-12 forgot">
+</div >
 <a href="registro.jsp">Sign up</a>
+
 <div></div>
 </div> <!--------End of Modal Content ----------->
 </div>

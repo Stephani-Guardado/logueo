@@ -25,6 +25,10 @@ public List<Logueo> ingresarUser(Logueo user){
 		em.getTransaction().begin();
 		usuario = em.createQuery("from Logueo as u where u.usuario ='"+user.getUsuario()+"'and u.password= '"+user.getPassword()+"'").getResultList();
 		em.getTransaction().commit();
+		
+		for (Logueo datosids: usuario) {
+			System.out.println(datosids.getIdlogueo());
+		}
 	} catch (Exception e) {
 		// TODO: handle exception
 		System.out.println(e+"TIENES UN ERROR");
