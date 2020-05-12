@@ -21,6 +21,7 @@ if(variabledeseccion==null){
 <form action="serveletUser" method="post">
 <input type="submit" value="CERRAR" name="btncerrar">
 </form>
+<a href="historialusuarios.jsp">Ver historial de los usuarios</a>
 <h1><b><i class="fas fa-clipboard">Hola Bienvenido</i></b></h1>
 </body>
 </html>

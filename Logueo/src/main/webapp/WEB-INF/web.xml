@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.estefany.controladorDatos.serveletUser</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>serveletHistorialUser</servlet-name>
+  	<display-name>serveletHistorialUser</display-name>
+  	<description></description>
+  	<servlet-class>com.estefany.controladorDatos.serveletHistorialUser</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>serveletUser</servlet-name>
   	<url-pattern>/serveletUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>serveletHistorialUser</servlet-name>
+  	<url-pattern>/serveletHistorialUser</url-pattern>
   </servlet-mapping>
 </web-app>
